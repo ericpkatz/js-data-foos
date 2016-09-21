@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <link rel='stylesheet' href='/bootstrap/dist/css/bootstrap.css' />
+    <script src='/angular/angular.js'></script>
+    <script src='/js-data/dist/js-data.js'></script>
+    <script src='/js-data-angular/dist/js-data-angular.js'></script>
+    <script src='/app.js'></script>
+  </head>
+  <body ng-app='app'>
+    <div class='container'>
+      <h1>Foos</h1>
+      <div ng-controller='FooListCtrl'>
+        <div class='well' ng-form='form'>
+          <div class='form-group'>
+            <input ng-model='foo.name' required  class='form-control' />
+          </div>
+          <button class='btn btn-primary' ng-click='create()' ng-disabled='!form.$valid'>Create</button>
+        </div>
+        <ul>
+          <li class='list-group-item' ng-repeat='foo in foos' ng-click='destroy(foo)'>
+            {{ foo.name }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
